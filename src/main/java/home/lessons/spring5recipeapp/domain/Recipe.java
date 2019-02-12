@@ -1,6 +1,7 @@
 package home.lessons.spring5recipeapp.domain;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Recipe {
@@ -18,12 +19,17 @@ public class Recipe {
     private String directions;
     //todo add
     //private Difficulty difficulty;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "recipe")
+    private Set<Ingredient> ingredient;
+
+    @Lob
     private Byte[] image;
 
     @OneToOne
     private Notes notes;
 
-    @Lob
+
     public Long getId() {
         return id;
     }
@@ -86,6 +92,14 @@ public class Recipe {
 
     public void setDirections(String directions) {
         this.directions = directions;
+    }
+
+    public Set<Ingredient> getIngredient() {
+        return ingredient;
+    }
+
+    public void setIngredient(Set<Ingredient> ingredient) {
+        this.ingredient = ingredient;
     }
 
     public Byte[] getImage() {
