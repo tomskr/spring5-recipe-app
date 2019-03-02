@@ -2,8 +2,8 @@ package home.lessons.spring5recipeapp.controllers;
 
 import home.lessons.spring5recipeapp.domain.Recipe;
 import home.lessons.spring5recipeapp.services.RecipeService;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.test.web.servlet.MockMvc;
@@ -14,6 +14,7 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+
 public class RecipeControllerTest {
 
     @Mock
@@ -21,7 +22,7 @@ public class RecipeControllerTest {
 
     RecipeController controller;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
 
